@@ -7,7 +7,7 @@ var listingSchema = new Schema({
   code: String,
   name: String,
   coordinates: {
-    latitude: Number
+    latitude: Number,
     longitude: Number
   },
   address: String,
@@ -24,6 +24,12 @@ listingSchema.pre('save', function(next) {
 
   if(!this.created_at)
   this.created_at = currentDate;
+
+  if(!this.code)
+    return next(new Error('Must provide a code.'));
+
+  if(!this.name)
+    return next(new Error('must provide a name.'));
 
   next();
 });
