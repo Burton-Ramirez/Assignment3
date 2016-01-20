@@ -16,22 +16,16 @@ var findLibraryWest = function() {
     });
 
 
-   
+
 };
 var removeCable = function() {
+    // find the user with id 4
+    Listing.findOneAndRemove({ code: 'CABL' }, function(err) {
+      if (err) throw err;
 
-    Listing.find({code: 'CABL'}, function(err,item) {
-        if (err) throw err;
-
-        console.log(item);
-        item.remove(function(err) {
-           if (err) throw err;
-
-            console.log("Listing Deleted");
-        });
-
-
-    });
+      // we have deleted the user
+      console.log('Listing deleted!');
+});
 
 };
 var updatePhelpsMemorial = function() {
@@ -42,7 +36,13 @@ var updatePhelpsMemorial = function() {
         console.log(item);
     });
 
+    Listing.find({code: "PHL"}, function(err, item) {
+        if (err) throw err;
+
+        console.log(item);
+    });
 };
+
 var retrieveAllListings = function() {
   /*
     Retrieve all listings in the database, and log them to the console.

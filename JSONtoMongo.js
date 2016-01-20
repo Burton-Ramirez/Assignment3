@@ -26,10 +26,7 @@ fs.readFile('listings.json', 'utf8', function(err, data) {
         })
     });
 });
-
-
 /*
   Once you've written + run the script, check out your MongoLab database to ensure that
   it saved everything correctly.
  */
-
