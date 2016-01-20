@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 
 /* Fill out these functions using Mongoose queries*/
-mongoose.connect(config.db.uri);
+    mongoose.connect(config.db.uri);
 
 var findLibraryWest = function() {
 
@@ -14,19 +14,16 @@ var findLibraryWest = function() {
 
         console.log(item);
     });
-
-
-
 };
+
 var removeCable = function() {
-    // find the user with id 4
+    // find and remove cabl
     Listing.findOneAndRemove({ code: 'CABL' }, function(err) {
       if (err) throw err;
 
-      // we have deleted the user
+      // we have deleted the listing
       console.log('Listing deleted!');
 });
-
 };
 var updatePhelpsMemorial = function() {
 
